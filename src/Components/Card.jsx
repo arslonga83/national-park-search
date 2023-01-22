@@ -1,12 +1,11 @@
-import {data} from '../data.js'
 
-export default function Card() {
+export default function Card(props) {
   return (
     <div className="card">
-      <h1>{data.data[0].fullName}</h1>
-      <p><a href={data.data[0].url}>{data.data[0].url}</a></p>
-      <p>{data.data[0].description}</p>
-      <img src={data.data[0].images[0].url} />
+      <h1>{props.data.data[0].fullName}</h1>
+      <p><a href={props.data.data[0].url}>{props.data.data[0].url}</a></p>
+      <p>{props.data.data[0].description}</p>
+      <img src={props.data.data[0].images[0].url} />
     </div>
    
   )

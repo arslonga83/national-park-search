@@ -23,12 +23,10 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card data={data}/>
+        <Card data={data}/>
+        <Card data={data}/>
+        <Card data={data}/>
       </main>
       
     </div>
