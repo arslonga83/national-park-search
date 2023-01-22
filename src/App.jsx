@@ -7,6 +7,7 @@ import Header from './Components/Header'
 const API_KEY = import.meta.env.VITE_API_KEY
 const state = 'WY'
 
+
 const parksData = await fetch(`https://developer.nps.gov/api/v1/parks?stateCode=${state}&api_key=${API_KEY}`)
   .then(res => res.json())
   .then(data => {
@@ -17,16 +18,22 @@ const cards = parksData.map(park => {
   return (
     <Card 
       key={park.id}
-          park={park}
+      park={park}
     />
   )
 })
+
+
+function handleClick() {
+  console.log('click')
+}
 
 function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header handleClick={handleClick}/>
+      
       <main>
         {cards}
       </main> 

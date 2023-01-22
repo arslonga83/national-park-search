@@ -13,6 +13,9 @@ body {
 
 .Header {
   background-color: #9b7457;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Header h1 {
@@ -22,6 +25,31 @@ body {
   font-size: 3rem;
   padding: 1em;
   text-align: center;
+}
+
+.inputs {
+  margin-bottom: 2em;
+  margin-top: -2em;
+  border-radius: 10px;
+}
+
+input, button {
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: .5em 1.5em;
+  width: 225px;
+  border-radius: 10px;
+  margin: 0 .5em;
+  border: none;
+  color: #2d5043;
+  background: #ebb495;
+}
+
+button:hover, button:focus, input:focus {
+  background-color: #ec8364;
+  outline: none;
 }
 
 main {
