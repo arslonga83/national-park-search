@@ -9,7 +9,7 @@ const API_KEY = import.meta.env.VITE_API_KEY
 
 
 
-const cards = await fetch(`https://developer.nps.gov/api/v1/parks?stateCode=OR&api_key=${API_KEY}`)
+const cardsData = await fetch(`https://developer.nps.gov/api/v1/parks?stateCode=OR&api_key=${API_KEY}`)
   .then(res => res.json())
   .then(data => {
     return data.data.map(park => {
@@ -30,12 +30,13 @@ const cards = await fetch(`https://developer.nps.gov/api/v1/parks?stateCode=OR&a
 function App() {
 
   const [stateCode, setStateCode] = React.useState('')
+  const [cards, setCards] = React.useState(cardsData)
 
   function handleChange(event) {
     setStateCode(event.target.value)
   }
 
-  function handleClick(event) {
+  function handleClick() {
     console.log('click')
   }
 
