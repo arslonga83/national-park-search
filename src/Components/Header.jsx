@@ -10,7 +10,7 @@ export default function Header(props) {
           placeholder="state code"
           name="code"
           onChange={props.handleChange}
-          value={props.stateCode}
+          value={props.input}
           ></input>
         <button onClick={props.handleClick}>Search</button>
       </div>

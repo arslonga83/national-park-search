@@ -1,55 +1,46 @@
 
 import './App.css'
 import React from 'react'
-// import { data } from './data.js'
 import Card from './Components/Card'
 import Header from './Components/Header'
 
 const API_KEY = import.meta.env.VITE_API_KEY
 
-
-
-const cardsData = await fetch(`https://developer.nps.gov/api/v1/parks?stateCode=OR&api_key=${API_KEY}`)
-  .then(res => res.json())
-  .then(data => {
-    return data.data.map(park => {
-      return (
-        <Card 
-          key={park.id}
-          park={park}
-        />
-      )
-    })
-})
-
-// const cards = parksData
-
-
-
-
 function App() {
 
-  const [stateCode, setStateCode] = React.useState('')
-  const [cards, setCards] = React.useState(cardsData)
+  const [input, setInput] = React.useState('')
+  const [stateCode, setStateCode] = React.useState('OR')
+  const [parksData, setParksData] = React.useState([])
+
+  React.useEffect(() => {
+    fetch(`https://developer.nps.gov/api/v1/parks?stateCode=${stateCode}&api_key=${API_KEY}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log('API call')
+        setParksData(data)
+      })
+  }, [stateCode])
 
   function handleChange(event) {
-    setStateCode(event.target.value)
+    setInput(event.target.value)
   }
 
   function handleClick() {
-    console.log('click')
+    setStateCode(input)
   }
 
   return (
     <div className="App">
       <Header 
-        stateCode={stateCode}
+        input={input}
         handleChange={handleChange} 
         handleClick={handleClick}
       />
       
       <main>
-        {cards}
+        <Card 
+          parksData={parksData.data}
+        />
       </main> 
     </div>
   )

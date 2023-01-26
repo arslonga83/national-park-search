@@ -49,6 +49,10 @@ input, button {
   background: #ebb495;
 }
 
+button {
+  cursor: pointer;
+}
+
 button:hover, button:focus, input:focus {
   background-color: #ec8364;
   outline: none;
